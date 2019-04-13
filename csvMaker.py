@@ -31,7 +31,7 @@ for i, data in enumerate(r['hourly']['data']):
 # Make a request for every lat and lon in coordinates, then write to cloudCover
 for i, [lat,lon] in enumerate(coordinates):
     cloudCover[i][0:2] = [lat,lon]
-    URL = 'https://api.darksky.net/forecast/9ee4a75602f09db95f5b1eeee3fa2910/' + lat + ',' + lon
+    URL = 'https://api.darksky.net/forecast/' + key + '/' + lat + ',' + lon
     r = requests.get(url = URL, params = PARAMS).json()
     for j, data in enumerate(r['hourly']['data']):
         cloudCover[i][j+2] = data['cloudCover']
